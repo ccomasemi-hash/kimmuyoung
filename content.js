@@ -177,7 +177,7 @@ const SITE = {
     show: true,
     title: "오시는 길",
     photo: "images/gate.jpg",       // 정문 사진 (예: "images/gate.jpg"), 없으면 ""
-    mapImage: "",    // 약도 그림 (예: "images/map.jpg"), 넣으면 움직이는 지도 대신 이 그림이 나옵니다
+    mapImage: "images/map.jpg",    // 약도 그림 (예: "images/map.jpg"), 넣으면 움직이는 지도 대신 이 그림이 나옵니다
     showMap: true,   // 주소로 지도를 자동으로 보여 줍니다 (지도가 이상하면 false)
   },
 
