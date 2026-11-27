@@ -207,3 +207,32 @@ document.querySelectorAll(".story, .fac.zoom").forEach((el) => el.addEventListen
 }));
 lb.addEventListener("click", () => lb.classList.remove("open"));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") lb.classList.remove("open"); });
+
+/* 🪷 마우스·손가락을 움직일 때마다 연꽃이 날아다니는 효과
+   (끄고 싶으면 아래 LOTUS_ON 을 false 로 바꾸세요) */
+const LOTUS_ON = true;
+if (LOTUS_ON && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let lastLotus = 0;
+  const spawnLotus = (x, y) => {
+    const now = performance.now();
+    if (now - lastLotus < 60) return;
+    lastLotus = now;
+    const el = document.createElement("span");
+    el.className = "lotus-fly";
+    el.textContent = "🪷";
+    el.setAttribute("aria-hidden", "true");
+    el.style.left = x + "px";
+    el.style.top = y + "px";
+    el.style.fontSize = 18 + Math.random() * 22 + "px";
+    el.style.setProperty("--dx", (Math.random() - 0.5) * 160 + "px");
+    el.style.setProperty("--dy", -(80 + Math.random() * 140) + "px");
+    el.style.setProperty("--rot", (Math.random() - 0.5) * 240 + "deg");
+    document.body.appendChild(el);
+    el.addEventListener("animationend", () => el.remove());
+  };
+  window.addEventListener("mousemove", (e) => spawnLotus(e.clientX, e.clientY));
+  window.addEventListener("touchmove", (e) => {
+    const t = e.touches[0];
+    if (t) spawnLotus(t.clientX, t.clientY);
+  }, { passive: true });
+}

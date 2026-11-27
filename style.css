@@ -240,3 +240,11 @@ footer b { font-family: "Jua", sans-serif; font-weight: 400; font-size: 22px; co
 /* 첫 화면에서는 위쪽 글씨 메뉴를 숨기고, 아래로 내리면 다시 보여요 */
 header:not(.solid) nav, header:not(.solid) .menu-btn { opacity: 0; visibility: hidden; }
 header nav, header .menu-btn { transition: opacity .3s, visibility .3s; }
+
+/* 🪷 날아다니는 연꽃 */
+.lotus-fly { position: fixed; z-index: 120; pointer-events: none; user-select: none; transform: translate(-50%, -50%); animation: lotus-fly 1.6s ease-out forwards; }
+@keyframes lotus-fly {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(.4) rotate(0); }
+  15%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.1) rotate(var(--rot)); }
+}
