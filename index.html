@@ -1,242 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>햇살어린이집</title>
-  <meta name="description" content="아이들이 햇살처럼 밝게 자라는 곳, 햇살어린이집입니다.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>퇴계연꽃어린이집</title>
+  <meta name="description" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="images/hero-garden.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Jua&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- 상단 메뉴 -->
-  <header class="header">
-    <div class="container header-inner">
-      <a href="#home" class="logo">☀️ 햇살어린이집</a>
-      <button class="menu-toggle" aria-label="메뉴 열기" aria-expanded="false">☰</button>
-      <nav class="nav">
-        <a href="#about">어린이집 소개</a>
-        <a href="#program">교육 프로그램</a>
-        <a href="#daily">하루 일과</a>
-        <a href="#classes">반 소개</a>
-        <a href="#notice">공지사항</a>
-        <a href="#contact" class="nav-cta">입소 상담</a>
-      </nav>
+  <!--
+    ✏️ 글자·사진은 이 파일이 아니라 content.js 에서 바꿉니다.
+    🎨 색깔은 style.css 맨 위에서 바꿉니다.
+  -->
+  <header id="header">
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <span class="brand-logo" id="brandLogo">🌱</span>
+        <span class="brand-name"><small id="brandSub"></small><b id="brandName"></b></span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-label="메뉴 열기">☰</button>
+      <nav id="nav"><ul id="navList"></ul></nav>
     </div>
   </header>
 
-  <!-- 메인 배너 -->
-  <section id="home" class="hero">
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <p class="hero-badge">2027학년도 신입 원아 모집 중</p>
-        <h1>아이들이 <span>햇살처럼</span><br>밝게 자라는 곳</h1>
-        <p class="hero-desc">사랑과 놀이 속에서 스스로 배우고 함께 자라는<br>행복한 어린이집을 만들어 갑니다.</p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary">입소 상담 신청</a>
-          <a href="#about" class="btn btn-outline">더 알아보기</a>
-        </div>
+  <main id="main"></main>
+
+  <footer>
+    <div class="wrap">
+      <div class="f-logo" id="footLogo"></div>
+      <div>
+        <b id="footName"></b>
+        <div id="footInfo"></div>
+        <div class="copy" id="footCopy"></div>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <div class="sun">☀️</div>
-        <div class="cloud c1">☁️</div>
-        <div class="cloud c2">☁️</div>
-        <div class="kids">🧒👧👦</div>
-        <div class="grass"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 어린이집 소개 -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">어린이집 소개</h2>
-      <p class="section-sub">원장 인사말</p>
-      <div class="about-box">
-        <div class="about-photo" aria-hidden="true">👩‍🏫</div>
-        <div class="about-text">
-          <p>안녕하세요, 햇살어린이집 홈페이지를 찾아주셔서 감사합니다.</p>
-          <p>햇살어린이집은 아이 한 명 한 명의 개성을 존중하며, 놀이를 통해 스스로 생각하고 표현하는 힘을 기르는 것을 목표로 합니다. 안전하고 따뜻한 환경 속에서 아이들이 매일 웃으며 등원할 수 있도록 선생님들 모두 최선을 다하겠습니다.</p>
-          <p class="sign">햇살어린이집 원장 <strong>김○○</strong></p>
-        </div>
-      </div>
-
-      <div class="values">
-        <div class="value-card">
-          <div class="icon">💛</div>
-          <h3>사랑</h3>
-          <p>아이의 마음을 먼저 읽는 따뜻한 보육</p>
-        </div>
-        <div class="value-card">
-          <div class="icon">🛡️</div>
-          <h3>안전</h3>
-          <p>CCTV·안전교육·정기 점검으로 지키는 안심 환경</p>
-        </div>
-        <div class="value-card">
-          <div class="icon">🌱</div>
-          <h3>성장</h3>
-          <p>놀이 중심 누리과정으로 키우는 자기주도성</p>
-        </div>
-        <div class="value-card">
-          <div class="icon">🥗</div>
-          <h3>건강</h3>
-          <p>영양사가 짠 친환경 식단과 위생 관리</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 교육 프로그램 -->
-  <section id="program" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">교육 프로그램</h2>
-      <p class="section-sub">놀이로 배우고, 경험으로 자랍니다</p>
-      <div class="program-grid">
-        <div class="program-card">
-          <div class="icon">🎨</div>
-          <h3>미술 놀이</h3>
-          <p>다양한 재료로 마음껏 표현하며 창의력을 키워요.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon">🎵</div>
-          <h3>음악·율동</h3>
-          <p>노래와 몸짓으로 리듬감과 표현력을 길러요.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon">🌳</div>
-          <h3>숲 체험</h3>
-          <p>자연 속에서 계절의 변화를 직접 느끼고 탐색해요.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon">📚</div>
-          <h3>그림책 읽기</h3>
-          <p>매일 그림책을 읽으며 언어와 상상력을 키워요.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon">🔬</div>
-          <h3>과학 탐구</h3>
-          <p>궁금한 것을 관찰하고 실험하며 답을 찾아가요.</p>
-        </div>
-        <div class="program-card">
-          <div class="icon">⚽</div>
-          <h3>신체 놀이</h3>
-          <p>뛰고 구르며 튼튼한 몸과 협동심을 길러요.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 하루 일과 -->
-  <section id="daily" class="section">
-    <div class="container">
-      <h2 class="section-title">하루 일과</h2>
-      <p class="section-sub">규칙적인 생활로 안정감을 줍니다</p>
-      <ol class="timeline">
-        <li><span class="time">07:30 – 09:30</span><span class="what">🚪 등원 및 자유놀이</span></li>
-        <li><span class="time">09:30 – 10:00</span><span class="what">🍎 오전 간식</span></li>
-        <li><span class="time">10:00 – 11:30</span><span class="what">🎨 주제 활동 · 바깥 놀이</span></li>
-        <li><span class="time">11:30 – 12:30</span><span class="what">🍚 점심 식사 · 양치</span></li>
-        <li><span class="time">12:30 – 15:00</span><span class="what">😴 낮잠 및 휴식</span></li>
-        <li><span class="time">15:00 – 15:30</span><span class="what">🥛 오후 간식</span></li>
-        <li><span class="time">15:30 – 19:30</span><span class="what">🏠 자유놀이 · 하원</span></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 반 소개 -->
-  <section id="classes" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">반 소개</h2>
-      <p class="section-sub">연령에 맞춘 반 구성</p>
-      <div class="class-grid">
-        <div class="class-card c-yellow">
-          <div class="icon">🐣</div>
-          <h3>병아리반</h3>
-          <p class="age">만 0세</p>
-          <p>교사 1명당 3명 · 애착 형성 중심</p>
-        </div>
-        <div class="class-card c-green">
-          <div class="icon">🐰</div>
-          <h3>토끼반</h3>
-          <p class="age">만 1세</p>
-          <p>교사 1명당 5명 · 감각·탐색 놀이</p>
-        </div>
-        <div class="class-card c-blue">
-          <div class="icon">🐬</div>
-          <h3>돌고래반</h3>
-          <p class="age">만 2세</p>
-          <p>교사 1명당 7명 · 언어·사회성 발달</p>
-        </div>
-        <div class="class-card c-pink">
-          <div class="icon">🦁</div>
-          <h3>사자반</h3>
-          <p class="age">만 3–5세</p>
-          <p>누리과정 · 프로젝트 활동</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 공지사항 -->
-  <section id="notice" class="section">
-    <div class="container">
-      <h2 class="section-title">공지사항</h2>
-      <p class="section-sub">어린이집 소식을 알려드려요</p>
-      <ul class="notice-list">
-        <li><span class="tag">모집</span><span class="title">2027학년도 신입 원아 모집 안내</span><span class="date">2026.11.20</span></li>
-        <li><span class="tag">행사</span><span class="title">12월 크리스마스 발표회 안내</span><span class="date">2026.11.15</span></li>
-        <li><span class="tag">식단</span><span class="title">12월 식단표 안내</span><span class="date">2026.11.10</span></li>
-        <li><span class="tag">안내</span><span class="title">겨울철 감기 예방 및 건강 관리 안내</span><span class="date">2026.11.03</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 입소 상담 / 오시는 길 -->
-  <section id="contact" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">입소 상담 · 오시는 길</h2>
-      <p class="section-sub">궁금한 점은 언제든 편하게 문의해 주세요</p>
-      <div class="contact-grid">
-        <form class="contact-form" id="contactForm">
-          <label>보호자 성함<input type="text" name="parent" required placeholder="홍길동"></label>
-          <label>연락처<input type="tel" name="phone" required placeholder="010-0000-0000"></label>
-          <label>아이 나이
-            <select name="age" required>
-              <option value="">선택해 주세요</option>
-              <option>만 0세</option>
-              <option>만 1세</option>
-              <option>만 2세</option>
-              <option>만 3–5세</option>
-            </select>
-          </label>
-          <label>문의 내용<textarea name="message" rows="4" placeholder="상담 희망 날짜나 궁금한 점을 적어주세요."></textarea></label>
-          <button type="submit" class="btn btn-primary">상담 신청하기</button>
-          <p class="form-result" id="formResult" role="status"></p>
-        </form>
-        <div class="contact-info">
-          <div class="map" aria-hidden="true">🗺️<span>지도 영역</span></div>
-          <ul>
-            <li>📍 <strong>주소</strong> 서울시 ○○구 ○○로 123</li>
-            <li>📞 <strong>전화</strong> 02-000-0000</li>
-            <li>🕖 <strong>운영시간</strong> 평일 07:30 – 19:30</li>
-            <li>🚌 <strong>차량 운행</strong> 등·하원 차량 운행</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <p class="logo">☀️ 햇살어린이집</p>
-      <p>주소: 서울시 ○○구 ○○로 123 · 전화: 02-000-0000</p>
-      <p class="copy">© 2026 햇살어린이집. All rights reserved.</p>
+      <div class="f-links" id="footLinks"></div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <div class="lightbox" id="lightbox"><img alt=""><p></p></div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
