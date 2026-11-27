@@ -209,9 +209,21 @@ lb.addEventListener("click", () => lb.classList.remove("open"));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") lb.classList.remove("open"); });
 
 /* 🪷 마우스·손가락을 움직일 때마다 연꽃이 날아다니는 효과
-   (끄고 싶으면 아래 LOTUS_ON 을 false 로 바꾸세요) */
+   (끄고 싶으면 아래 LOTUS_ON 을 false 로 바꾸세요)
+   연꽃은 이모지가 아니라 그림(SVG)이라 윈도우10·옛 휴대폰에서도 보입니다. */
 const LOTUS_ON = true;
-if (LOTUS_ON && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+const LOTUS_SVG =
+  '<svg viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg">' +
+  '<defs><linearGradient id="lp" x1="0" y1="0" x2="0" y2="1">' +
+  '<stop offset="0" stop-color="#ff8fb8"/><stop offset="1" stop-color="#ffe3ee"/></linearGradient></defs>' +
+  '<ellipse cx="32" cy="44" rx="24" ry="4" fill="#6fae6a"/>' +
+  '<path d="M32 42C18 42 4 34 2 24c10 0 22 6 30 18z" fill="url(#lp)" stroke="#e86a9a" stroke-width="1"/>' +
+  '<path d="M32 42C46 42 60 34 62 24c-10 0-22 6-30 18z" fill="url(#lp)" stroke="#e86a9a" stroke-width="1"/>' +
+  '<path d="M32 42C20 38 12 24 16 10c10 6 16 18 16 32z" fill="url(#lp)" stroke="#e86a9a" stroke-width="1"/>' +
+  '<path d="M32 42C44 38 52 24 48 10c-10 6-16 18-16 32z" fill="url(#lp)" stroke="#e86a9a" stroke-width="1"/>' +
+  '<path d="M32 42c-7-8-8-24 0-38 8 14 7 30 0 38z" fill="url(#lp)" stroke="#e86a9a" stroke-width="1"/>' +
+  '<circle cx="32" cy="36" r="3" fill="#ffd34d"/></svg>';
+if (LOTUS_ON) {
   let lastLotus = 0;
   const spawnLotus = (x, y) => {
     const now = performance.now();
@@ -219,11 +231,11 @@ if (LOTUS_ON && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) 
     lastLotus = now;
     const el = document.createElement("span");
     el.className = "lotus-fly";
-    el.textContent = "🪷";
+    el.innerHTML = LOTUS_SVG;
     el.setAttribute("aria-hidden", "true");
     el.style.left = x + "px";
     el.style.top = y + "px";
-    el.style.fontSize = 18 + Math.random() * 22 + "px";
+    el.style.width = 26 + Math.random() * 26 + "px";
     el.style.setProperty("--dx", (Math.random() - 0.5) * 160 + "px");
     el.style.setProperty("--dy", -(80 + Math.random() * 140) + "px");
     el.style.setProperty("--rot", (Math.random() - 0.5) * 240 + "deg");
@@ -231,8 +243,10 @@ if (LOTUS_ON && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) 
     el.addEventListener("animationend", () => el.remove());
   };
   window.addEventListener("mousemove", (e) => spawnLotus(e.clientX, e.clientY));
-  window.addEventListener("touchmove", (e) => {
+  const onTouch = (e) => {
     const t = e.touches[0];
     if (t) spawnLotus(t.clientX, t.clientY);
-  }, { passive: true });
+  };
+  window.addEventListener("touchstart", onTouch, { passive: true });
+  window.addEventListener("touchmove", onTouch, { passive: true });
 }
